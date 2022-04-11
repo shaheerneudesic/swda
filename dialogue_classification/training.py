@@ -30,7 +30,7 @@ def masking(preds, labels, input_lengths):
 
 
 def train_model(data, talk_names, net_conf=None, lr_bert=0.0001, lr_head=0.0005, pct_start=0.2, weight_decay=0,
-                class_weight=None, bert_finetuning_epochs=3, batch_size=32, n_epochs=10, verbose=False, plot=False):
+                class_weight=None, bert_finetuning_epochs=3, batch_size=32, n_epochs=1, verbose=False, plot=False):
     net_conf = net_conf or {}
 
     net = Net(**net_conf).to(device)
@@ -153,6 +153,6 @@ def train_model(data, talk_names, net_conf=None, lr_bert=0.0001, lr_head=0.0005,
         ax2.legend()
         plt.show()
 
-    del net
+    #del net
 
-    return test_score
+    return test_score,net
